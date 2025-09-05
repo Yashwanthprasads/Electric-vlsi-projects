@@ -1,0 +1,23 @@
+*** SPICE deck for cell commondrainamp_1{lay} from library Project_1
+*** Created on Sat Jul 19, 2025 08:37:14
+*** Last revised on Sat Jul 19, 2025 08:55:04
+*** Written on Thu Jul 24, 2025 21:37:50 by Electric VLSI Design System, version 9.07
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** TOP LEVEL CELL: commondrainamp_1{lay}
+Mnmos@0 vout vin vdd gnd NMOS L=0.6U W=1.8U AS=7.695P AD=6.323P PS=16.5U PD=12U
+Mnmos@1 gnd vb vout gnd NMOS L=1.2U W=6U AS=6.323P AD=13.95P PS=12U PD=25.5U
+
+* Spice Code nodes in cell cell 'commondrainamp_1{lay}'
+vdd vdd 0 DC 5
+vb vb 0 DC 1
+*vin vin 0 sin (4 1 1k 0 0 0 50)
+vin vin 0 ac sin(4 1 1k 0 0 0 50)
+*vin vin 0 dc 5
+.ac dec 100 100 10g
+*.dc vin 0 5 .1
+*.tran 0 5m
+.include C:\electric vlsi\c5_models.txt
+*.options post
+.END
